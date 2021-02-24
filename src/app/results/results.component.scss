@@ -1,0 +1,14 @@
+
+@media (max-width: 768px) {
+  .mobile-top-left {
+      position: absolute;
+      top: 33px;
+      left: 42px;
+      width: 45px;
+      z-index: 119;
+
+      img {
+        margin-left: -100px;
+      }
+  }
+}

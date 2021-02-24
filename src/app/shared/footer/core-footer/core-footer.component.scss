@@ -1,0 +1,70 @@
+/* News Footer */
+.shortcut {
+    background-color: black;
+    opacity: 1;
+    min-height: 8vh;
+    z-index: 5000;
+
+    img.logo-fondo {
+        cursor: pointer;
+        max-width: 150px;
+        overflow: contain;
+    }
+    .shortcut-img {
+        object-fit: cover;
+        width: 80px !important;
+        height: 40px;
+        cursor: pointer;
+        transition: opacity 0.1s, transform 0.1s ease-in-out;
+        padding-left: 10px;
+        padding-right: 10px;
+        background: linear-gradient(
+            to right,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, 0.7) 50%,
+            rgba(255, 255, 255, 0) 100%
+        );
+
+        &:hover {
+            opacity: 0.9;
+            transform: scale(1.08);
+        }
+    }
+
+    .footer-menu {
+        img {
+            width: 30px;
+            height: 30px !important;
+            position: relative;
+            cursor: pointer;
+        }
+        .lens {
+            img {
+                width: 26px;
+                height: 26px;
+            }
+        }
+        > div {
+            margin-left: 10px;
+            margin-right: 10px;
+            position: relative;
+        }
+        sup {
+            color: bisque;
+            font-weight: bold;
+            position: absolute;
+            left: 30px;
+            top: 0px;
+        }
+    }
+}
+/* End News Footer */
+
+/* Responsive Style */
+@media screen and (max-width: 600px) {
+    img.logo-fondo {
+        max-width: 140px;
+        object-fit: contain;
+    }
+}
+/* End Responsive Style */

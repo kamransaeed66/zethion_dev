@@ -1,0 +1,238 @@
+
+.row { margin: 0; }
+/* News Footer */
+
+footer-toggle {
+  width: 22%;
+}
+
+.shortcut {
+  background-color: transparent;
+  opacity: 1;
+  max-height: 8vh;
+  height: 8vh;
+  z-index: 5000;
+ }
+
+img.logo-fondo {
+ cursor: pointer;
+ max-width: 150px;
+ overflow: contain;
+ max-height: 3vh;
+ margin: 12px 8px 8px 8px;
+}
+
+.footerRow .col-lg-8.col-md-10.col-sm-12{
+  padding-right: unset;
+  padding-left: unset;
+}
+.footer-menu img {
+ width: 30px;
+ height: 30px!important;
+ position: relative;
+ cursor: pointer;
+}
+
+/* .footer-menu .lens img {
+ width: 26px;
+ height: 26px;
+} */
+
+.footer-menu > div {
+ margin-left: 10px;
+ margin-right: 10px;
+ position: relative;
+}
+
+.footer-menu sup {
+ color: bisque;
+ font-weight: bold;
+ position: absolute;
+ left: 30px;
+ top: 0px;
+}
+/* End News Footer */
+
+/* Responsive Style */
+@media screen and (max-width: 600px) {
+ img.logo-fondo {
+   max-width: 140px;
+   object-fit: contain;
+ }
+}
+/* End Responsive Style */
+.navbar.navbar-light.bg-lignt {
+  display: none;
+}
+.mobile-menu-closed{
+  display: none;
+}
+@media (max-width: 767px){
+  .row {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+  .footerRow{
+    bottom: 0px;
+    background: black;
+    padding: 0px 2px !important;
+    max-height: inherit;
+    height: 8vh;
+  }
+  .footer-menu{
+    display: none!important;
+  }
+  /* hamburger */
+  .navbar.navbar-light.bg-lignt {
+    display: block;
+    background-color: transparent !important;
+  }
+  .navbar{
+    padding: 0!important;
+  }
+  .navbar-toggler{
+    padding: 0.25rem 0.5rem!important;
+  }
+  .navbar .navbar-toggler .navbar-toggler-icon{
+    height: 25px!important;
+    background-color: transparent!important;
+  }
+  .main-panel .navbar{
+    margin-bottom: auto!important;
+  }
+  .mobile-menu .footer-menu{
+    display: flex!important;
+  }
+  .mobile-menu{
+    position: absolute;
+    right: 11%;
+    bottom: 4%;
+    background: transparent;
+    padding: 3px 4px 4px 5px;
+  }
+
+  /* hamburger */
+  img.logo-fondo{
+    max-width: 30%;
+    /* max-width: 80%; */
+    /* max-height: unset; */
+    margin: 0px;
+    margin-top: 5px;
+  }
+
+  footer-toggle {
+    overflow: hidden;
+    width: 35%;
+    margin-bottom: -5px;
+  }
+
+}
+@media (max-width: 500px){
+  .footerRow{
+    position: fixed;
+  }
+}
+::ng-deep .dropdown-menu a:focus {
+  background-color: transparent !important;
+  box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px transparent !important;
+}
+
+::ng-deep .dropdown-menu a:hover {
+  box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgb(218 165 32 / 53%)!important;
+}
+
+/* hamburger */
+.menu-icon-bar {
+  width: 20px;
+  height: 2px;
+  margin: 6px 0;
+  -webkit-transition: width 1s ease-out;
+  -moz-transition: width 1s ease-out;
+  -o-transition: width 1s ease-out;
+  transition: all .5s ease-out;
+}
+
+.menu-icon-bar-long {
+  width: 30px;
+  height: 2px;
+  margin: 6px 0;
+}
+
+.menu-icon-bar-1 {
+  width: 20px;
+  height: 2px;
+  margin: 6px 0;
+  -webkit-transition: width 1s ease-out;
+  -moz-transition: width 1s ease-out;
+  -o-transition: width 1s ease-out;
+  transition: all .5s ease-out;
+  background: linear-gradient(to right, #c7b273 50%, white 50%);
+  background-size: 200% 100%;
+  background-position: right bottom;
+}
+
+.menu-icon-bar-long-1 {
+  width: 30px;
+  height: 2px;
+  margin: 6px 0;
+  background: linear-gradient(to left, white 50%, #c7b273 50%);
+  background-size: 200% 100%;
+  background-position: left bottom;
+}
+
+.menu-icon-bar-2 {
+  width: 20px;
+  height: 2px;
+  margin: 6px 0;
+  -webkit-transition: width 1s ease-out;
+  -moz-transition: width 1s ease-out;
+  -o-transition: width 1s ease-out;
+  transition: all .5s ease-out;
+  background: linear-gradient(to left, #c7b273 50%, white 50%);
+  background-size: 200% 100%;
+  background-position: right bottom;
+}
+
+.menu-icon-bar-long-2 {
+  width: 30px;
+  height: 2px;
+  margin: 6px 0;
+  background: linear-gradient(to right, white 50%, #c7b273 50%);
+  background-size: 200% 100%;
+  background-position: left bottom;
+}
+.menu-icon-background {
+  background: linear-gradient(to right, white 50%, #c7b273 50%);
+  background-size: 200% 100%;
+  background-position: right bottom;
+}
+
+.menu-icon-background-long {
+  background: linear-gradient(to left, #c7b273 50%, white 50%);
+  background-size: 200% 100%;
+  background-position: left bottom;
+}
+
+.delay-1 {
+  transition-delay: .1s;
+}
+
+.delay-2 {
+  transition-delay: .2s;
+}
+
+.delay-3 {
+  transition-delay: .3s;
+}
+
+.delay-4 {
+  transition-delay: .4s;
+}
+.hamber-block {
+  font-size: 30px;
+  color: #c7b273;
+}
+

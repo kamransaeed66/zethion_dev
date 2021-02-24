@@ -1,0 +1,19 @@
+<div class="container">
+  <mat-dialog-content class="news-content">
+    <button class="close d-lg-none d-xl-none d-md-none" mat-button (click)="onNoClick()"><i class="fa fa-times" aria-hidden="true"></i></button>
+    <div class="row">
+      <div class="card-content">
+        <div class="img-div" *ngIf="data.mediaType === 'IMAGE'">
+          <img class="img-content" src="{{ data.urlToMedia }}">
+        </div>
+        <div class="img-div" *ngIf="data.mediaType === 'VIDEO'">
+          <video controls autoplay playsinline onloadedmetadata="this.muted = false" class="img-content">
+            <source src="{{data.urlToMedia}}" type="video/mp4">
+          </video>
+        </div>
+        <h3 class="text-center fo-wt-900 title-content">{{ data.title }}</h3>
+        <p class="desc-content text-center">{{ data.description }}</p>
+      </div>
+    </div>
+  </mat-dialog-content>
+</div>

@@ -1,0 +1,1 @@
+export const countryCode = ['it', 'es', 'fr', 'de', 'us', 'zh', 'ar', 'pt', 'in', 'ru', 'jp'];

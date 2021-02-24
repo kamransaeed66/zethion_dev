@@ -1,0 +1,32 @@
+
+.nav-link:hover {
+  background: transparent !important;
+}
+
+ul > li > a.text-white:hover {
+  background: #DAA520 !important;
+}
+@media (max-width: 767px){
+  // .dropdown-menu.custom-drop-menu.dropdown-menu-right.news-custom-language.show{
+  //   right: unset!important;
+  // }
+
+  .news-custom-language{
+    right: -40px!important;
+  }
+  .dropdown-menu {
+    .open > &,
+    &.show {
+      display: block;
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    &.hiding {
+      display: block;
+      opacity: 0;
+      transform: none;
+    }
+  }
+
+}

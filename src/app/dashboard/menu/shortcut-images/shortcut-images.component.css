@@ -1,0 +1,213 @@
+@font-face {
+  font-family: 'Lato';
+  src: url('../../../../assets/fonts/Regular/Lato-Regular.ttf') format('truetype');
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'LatoBold';
+  src: url('../../../../assets/fonts/Bold/Lato-Bold.ttf') format('truetype');
+  font-weight: bolder;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'LatoBlack';
+  src: url('../../../../assets/fonts/Black/Lato-Black.ttf') format('truetype');
+  font-style: normal;
+}
+.row { margin: 0; }
+/* News Footer */
+.tag-img{
+  vertical-align: top;
+}
+.tag-letter{
+  padding-top: 10px;
+}
+.tag-img .loader-div{
+  padding-top: 10px;
+}
+.shortcut {
+ background-color: transparent;
+ opacity: 1;
+ max-height: 8vh;
+ height: 8vh;
+ z-index: 5000;
+}
+.shortcut-letter{
+  font-family: 'Lato', sans-serif;
+  color: #c7b273;
+  font-size: xx-large;
+  font-weight: bold;
+  padding: 0px 15px 0px 15px;
+}
+img.logo-fondo {
+ cursor: pointer;
+ max-width: 150px;
+ overflow: contain;
+ max-height: 6vh;
+ margin: 8px;
+}
+.shortCutImage{
+  padding-left: 5px;
+  padding-right: 10px;
+  /* padding-top: 5px; */
+  cursor: pointer;
+}
+.shortcut-img {
+ object-fit: cover;
+ /* width: 80px !important; */
+ /* height: 40px; */
+ max-height: 6vh;
+ /* height: 6vh; */
+ cursor: pointer;
+ transition: opacity 0.1s, transform 0.1s ease-in-out;
+ /* padding-left: 10px;
+ padding-right: 10px; */
+ /* #3 fix */
+ -webkit-mask-image: -webkit-gradient(linear, left center, right center, color-stop(0, transparent), color-stop(.10, rgba(0,0,0,.5)), color-stop(.25, black), color-stop(.75, black), color-stop(.90, rgba(0,0,0,.5)), color-stop(1, transparent));
+  mask-image: -webkit-gradient(linear, left center, right center, color-stop(0, transparent), color-stop(.10, rgba(0,0,0,.5)), color-stop(.25, black), color-stop(.75, black), color-stop(.90, rgba(0,0,0,.5)), color-stop(1, transparent));
+}
+.shortcut-img:hover {
+ opacity: 0.9;
+ transform: scale(1.08);
+}
+
+.footer-menu img {
+ width: 30px;
+ height: 30px!important;
+ position: relative;
+ cursor: pointer;
+}
+
+.footer-menu .lens img {
+ width: 26px;
+ height: 26px;
+}
+
+.footer-menu > div {
+ margin-left: 10px;
+ margin-right: 10px;
+ position: relative;
+}
+
+.footer-menu sup {
+ color: bisque;
+ font-weight: bold;
+ position: absolute;
+ left: 30px;
+ top: 0px;
+}
+.gold{
+  color: #c7b273;
+}
+.fas.fa-circle-notch.fa-spin{
+ font-size: x-large;
+ vertical-align: middle;
+}
+.loader-div{
+  width: 50px;
+}
+/* End News Footer */
+
+/* Responsive Style */
+@media screen and (max-width: 600px) {
+ img.logo-fondo {
+   max-width: 140px;
+   object-fit: contain;
+ }
+}
+/* End Responsive Style */
+
+
+.shortCutImages {
+ /* overflow-x: auto; */
+ /* overflow-y: hidden; #16 */
+ white-space: nowrap;
+ overflow: hidden;
+}
+.shortCutImage {
+ display: inline-block;
+ float: none;
+}
+
+
+@media (max-width: 767px){
+  .footerRow{
+  position: fixed;
+  bottom: 0px;
+  background: black;
+  padding: 0px 2px !important;
+  max-height: inherit;
+  /* height: auto; */
+  /* height: 8vh; */
+  }
+  /* .footerRow > div{
+  width: 50%;
+  } */
+  .footer-menu{
+    /* width: 50%; */
+    display: none!important;
+  }
+  img.logo-fondo{
+    max-width: 30%;
+    /* max-width: 80%; */
+  margin: 0px;
+  }
+  .shortCutImage{
+    padding: 5px 5px;
+  }
+  .shortCutImgCont{
+    width: 51%;
+    padding-left: unset!important;
+    padding-right: unset!important;
+    min-width: 50vw;
+  }
+  .shortCutImage img.shortcut-img {
+  width: 70px !important;
+  background: none;
+  }
+  .shortcut-letter{
+    width: 58px !important;
+    margin-right: 0px;
+    padding: 0px!important;
+    font-size: x-large;
+  }
+  .shortCutImage {
+  float: none;
+  display: table-cell;
+  text-align: center;
+  padding-left: 0!important;
+  }
+  .shortCutImages  {
+  white-space: nowrap;
+  /* overflow-x: hidden; #16 */
+  /* overflow-x: auto; #16 */
+  display: table;
+  width: 100%;
+  }
+  .shortCutImgCont .shortCutImage:nth-child(n+5){ display: none;}
+
+  .tag-letter {
+    padding-top: 15px!important;
+  }
+
+  .fas.fa-circle-notch.fa-spin{
+    vertical-align: unset;
+   }
+}
+.shortCutImgCont{
+  overflow: auto;
+}
+::-webkit-scrollbar {
+  display: none;
+}
+
+@media screen and (min-width: 1400px) {
+  .tag-letter {
+    padding-top: 15px!important;
+  }
+  .tag-img .loader-div{
+    padding-top: 15px;
+  }
+}

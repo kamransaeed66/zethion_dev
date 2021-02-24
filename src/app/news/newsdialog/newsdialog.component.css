@@ -1,0 +1,101 @@
+@font-face {
+  font-family: 'Lato';
+  src: url('../../../assets/fonts/Regular/Lato-Regular.ttf') format('truetype');
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'LatoBold';
+  src: url('../../../assets/fonts/Bold/Lato-Bold.ttf') format('truetype');
+  font-weight: bolder;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'LatoBlack';
+  src: url('../../../assets/fonts/Black/Lato-Black.ttf') format('truetype');
+  font-style: normal;
+}
+.card-content {
+  color: white;
+  font-family: 'Lato', sans-serif;
+}
+.card-content h3, .card-content p{
+  font-family: 'Lato', sans-serif;
+}
+
+.cdk-overlay-dark-backdrop {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.news-content {
+  overflow-x: hidden;
+  padding: 0px;
+  background: rgba(0, 0, 0, 0.8);
+}
+.desc-content {
+  padding: 20px 40px;
+}
+.title-content {
+  padding: 10px 20px;
+}
+.img-div {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 20px;
+}
+.img-content {
+  width: 70%;
+}
+.mat-dialog-content{
+  max-height: 85vh!important;
+}
+@media only screen and (max-width: 800px) {
+  ::ng-deep .custom-dialog-container,
+  .custom-dialog-container-no-scroll {
+    width: unset !important;
+  }
+  .close{
+    position: absolute;
+    right: 5px;
+    text-shadow: unset;
+    opacity: unset;
+    padding: 5px;
+  }
+  .fa.fa-times{
+    color: #c7b273;
+  }
+  ::ng-deep .custom-dialog-container .mat-dialog-container{
+    padding: 0 9px 9px 9px!important;
+  }
+  .mat-dialog-content{
+    max-height: 100vh!important;
+    height: 100vh;
+  }
+  .title-content {
+    font-size: 20px;
+  }
+  .desc-content {
+    font-size: 15px;
+    padding: 1px 40px;
+  }
+  .img-content {
+    width: 87%;
+  }
+  .card-content{
+    margin-bottom: 8vh;
+  }
+  .img-div {
+    margin-top: 40px;
+  }
+}
+
+/* CSS specific to iOS devices */
+@supports (-webkit-touch-callout: none) {
+  .mat-dialog-content{
+    max-height: 100vh!important;
+    height: 86vh;
+  }
+
+}

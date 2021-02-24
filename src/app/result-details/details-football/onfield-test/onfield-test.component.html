@@ -1,0 +1,232 @@
+<div class="field-wrapper">
+  <!-- <p>onfield-test works!</p> -->
+  <div class="display-options">
+    <mat-checkbox [(ngModel)]="displayGrid">Display Gridlines</mat-checkbox>
+    <mat-checkbox [(ngModel)]="displayZones">Display Player Zones</mat-checkbox>
+    <mat-checkbox [(ngModel)]="displayPlayerPositions">Display Player Positions</mat-checkbox>
+    <mat-checkbox [(ngModel)]="displayPlayers">Display Players</mat-checkbox>
+  </div>
+  <div class="position-container"
+       cdkDropList
+       [cdkDropListConnectedTo]="[onField]">
+    <div *ngFor="let position of positions"
+         class="position"
+         cdkDrag
+         cdkDragBoundary=".onfield">{{position}}</div>
+  </div>
+  <div class="onfield-wrapper"
+       #onField="cdkDropList"
+       cdkDropList
+       (cdkDropListDropped)="drop($event)">
+    <div *ngIf="displayZones"
+         class="zones-overlay">
+      <table class="zones-table">
+        <tr *ngFor="let i of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]">
+          <td *ngFor="let j of [1,2,3,4,5,6]"></td>
+        </tr>
+      </table>
+    </div>
+    <div *ngIf="displayPlayerPositions"
+         class="player-positions-overlay">
+      <!-- HOME TEAM -->
+      <div class="h_gk"></div>
+      <!-- SWIPERS -->
+      <div class="h_sw-c-1"></div>
+      <div class="h_sw-c-2"></div>
+      <div class="h_sw-c-3"></div>
+      <!-- DEFENDERS -->
+      <div class="h_df-c-1"></div>
+      <div class="h_df-c-2"></div>
+      <div class="h_df-c-3"></div>
+      <div class="h_df-c-4"></div>
+      <div class="h_df-c-5"></div>
+      <div class="h_sb-r"></div>
+      <div class="h_sb-l"></div>
+      <!-- DEFENSIVE MIDFIELDS -->
+      <div class="h_dmf-c-1"></div>
+      <div class="h_dmf-c-2"></div>
+      <div class="h_dmf-c-3"></div>
+      <div class="h_dmf-c-4"></div>
+      <div class="h_dmf-c-5"></div>
+      <!-- MIDFIELDS -->
+      <div class="h_mf-c-1"></div>
+      <div class="h_mf-c-2"></div>
+      <div class="h_mf-c-3"></div>
+      <div class="h_mf-c-4"></div>
+      <div class="h_mf-c-5"></div>
+      <div class="h_mf-r"></div>
+      <div class="h_mf-l"></div>
+      <!-- ADVANCED MIDFIELDS -->
+      <div class="h_amf-c-1"></div>
+      <div class="h_amf-c-2"></div>
+      <div class="h_amf-c-3"></div>
+      <div class="h_amf-c-4"></div>
+      <div class="h_amf-c-5"></div>
+      <div class="h_wf-r"></div>
+      <div class="h_wf-l"></div>
+      <!-- FORWARDS -->
+      <div class="h_fw-c-1"></div>
+      <div class="h_fw-c-2"></div>
+      <div class="h_fw-c-3"></div>
+      <div class="h_st-c-1"></div>
+      <div class="h_st-c-2"></div>
+      <div class="h_st-c-3"></div>
+      <!-- AWAY TEAM -->
+      <div class="a_gk"></div>
+      <!-- SWIPERS -->
+      <div class="a_sw-c-1"></div>
+      <div class="a_sw-c-2"></div>
+      <div class="a_sw-c-3"></div>
+      <!-- DEFENDERS -->
+      <div class="a_df-c-1"></div>
+      <div class="a_df-c-2"></div>
+      <div class="a_df-c-3"></div>
+      <div class="a_df-c-4"></div>
+      <div class="a_df-c-5"></div>
+      <div class="a_sb-r"></div>
+      <div class="a_sb-l"></div>
+      <!-- DEFENSIVE MIDFIELDS -->
+      <div class="a_dmf-c-1"></div>
+      <div class="a_dmf-c-2"></div>
+      <div class="a_dmf-c-3"></div>
+      <div class="a_dmf-c-4"></div>
+      <div class="a_dmf-c-5"></div>
+      <!-- MIDFIELDS -->
+      <div class="a_mf-c-1"></div>
+      <div class="a_mf-c-2"></div>
+      <div class="a_mf-c-3"></div>
+      <div class="a_mf-c-4"></div>
+      <div class="a_mf-c-5"></div>
+      <div class="a_mf-r"></div>
+      <div class="a_mf-l"></div>
+      <!-- ADVANCED MIDFIELDS -->
+      <div class="a_amf-c-1"></div>
+      <div class="a_amf-c-2"></div>
+      <div class="a_amf-c-3"></div>
+      <div class="a_amf-c-4"></div>
+      <div class="a_amf-c-5"></div>
+      <div class="a_wf-r"></div>
+      <div class="a_wf-l"></div>
+      <!-- FORWARDS -->
+      <div class="a_fw-c-1"></div>
+      <div class="a_fw-c-2"></div>
+      <div class="a_fw-c-3"></div>
+      <div class="a_st-c-1"></div>
+      <div class="a_st-c-2"></div>
+      <div class="a_st-c-3"></div>
+    </div>
+    <div *ngIf="displayPlayers"
+         class="players-overlay">
+      <div *ngFor="let player of players"
+           [ngClass]="player.positionClass"
+           (click)="playerClicked(player)">
+      </div>
+    </div>
+    <table *ngIf="displayGrid"
+           class="onfield-table">
+      <tr
+          *ngFor="let i of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42]">
+        <td *ngFor="let j of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22]">{{getGridLabel(i,j)}}</td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+
+
+<div class="container">
+
+  <h1>
+    ngx-facebook Example
+  </h1>
+
+  <p>
+    This is a basic example on how to use the ngx-facebook package. Please check your console for responses. There will be no visual feedback here.
+  </p>
+
+</div>
+
+<div class="container">
+
+  <h2>Facebook Service</h2>
+
+  <button (click)="login()" class="btn btn-lg btn-primary btn-block">
+    Login
+  </button>
+
+  <button (click)="loginWithOptions()" class="btn btn-lg btn-primary btn-block">
+    Login with Options
+  </button>
+
+  <button class="btn btn-lg btn-primary btn-block" (click)="getLoginStatus()">
+    Get login status
+  </button>
+
+  <button (click)="getProfile()" class="btn btn-lg btn-primary btn-block">
+    Get profile
+  </button>
+
+  <button (click)="test()" class="btn btn-lg btn-primary btn-block">
+    Get friends
+  </button>
+
+  <button (click)="share()" class="btn btn-lg btn-primary btn-block">
+    Share dialog
+  </button>
+
+</div>
+
+<div class="container">
+  <h2>Components</h2>
+
+  <h4>fb-like</h4>
+  <fb-like href="https://zyramedia.com"></fb-like>
+
+  <h4>fb-follow</h4>
+  <fb-follow href="https://www.facebook.com/zuck"></fb-follow>
+
+  <h4>fb-page</h4>
+  <fb-page href="https://facebook.com/zyramedia"></fb-page>
+
+  <h4>fb-quote</h4>
+  <fb-quote href="https://github.com/zyra/ngx-facebook"></fb-quote>
+  <p>Highlight any text on this page and see what happens.</p>
+
+  <h4>fb-save</h4>
+  <fb-save uri="https://github.com/zyra/ngx-facebook/"></fb-save>
+
+  <h4>fb-send</h4>
+  <fb-send href="https://github.com/zyra/ngx-facebook/"></fb-send>
+
+  <h4>fb-share</h4>
+  <fb-share href="https://github.com/zyra/ngx-facebook/"></fb-share>
+
+  <h4>fb-video</h4>
+  <fb-video href="https://www.facebook.com/SpaceX/videos/10157486010400131/"
+            (startPlaying)="onVideoEvent('startedPlaying')"
+            (paused)="onVideoEvent('paused')"
+            (finishedPlaying)="onVideoEvent('finishedPlaying')"
+            (startedBuffering)="onVideoEvent('startedBuffering')"
+            (finishedBuffering)="onVideoEvent('finishedBuffering')"
+            (error)="onVideoEvent('error')"
+  ></fb-video>
+  <br>
+  <button class="btn btn-primary" (click)="playVideo()">Play</button>
+  <button class="btn btn-primary" (click)="pauseVideo()">Pause</button>
+
+  <h4>fb-comments</h4>
+  <fb-comments numposts="3"></fb-comments>
+
+  <h4>fb-comment-embed</h4>
+  <fb-comment-embed href="https://www.facebook.com/zuck/posts/10102735452532991?comment_id=1070233703036185" width="500"></fb-comment-embed>
+
+  <h4>fb-post</h4>
+  <fb-post href="https://www.facebook.com/SkySport/posts/3928005763893569"></fb-post>
+
+
+</div>
+
+
+<div>
+  <ngx-tweet tweetId="921670221710032896"></ngx-tweet>
+</div>

@@ -1,0 +1,17 @@
+<div class="col-lg-7 col-md-10 col-sm-12 shortCutImgCont">
+ <div class="shortCutImages" id="scrollable">
+    <div class="shortCutImage" *ngFor="let p of currShortcuts" [class.active]="i==0" (click)="shortcutClick(p)" [ngClass]="p.urlToImage ?'tag-img':'tag-letter'">
+      <div [hidden]="!loader" *ngIf="curr === p.id" class="loader-div">
+        <i class="fas fa-circle-notch fa-spin gold"></i>
+      </div>
+      <div class="short-div">
+        <img [hidden]="loader && curr === p.id" *ngIf="p.urlToImage else shortcut_letter" [src]="p.urlToImage" class="shortcut-img" alt="p.source" (click)="shortcutClick()" onError="this.parentNode.style.display = 'none';">
+      </div>
+      <ng-template #shortcut_letter>
+        <div [hidden]="loader  && curr === p.id" class="shortcut-letter">
+          {{p.keyword.charAt(0)}}
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</div>

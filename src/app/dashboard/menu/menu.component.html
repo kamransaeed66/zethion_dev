@@ -1,0 +1,91 @@
+<div class="row shortcut d-flex justify-content-between align-items-center pl-3 pr-3 footerRow" *ngIf="true && vidComp">
+  <div class="col-lg-8 col-md-10 col-sm-12">
+    <div class="row">
+      <!-- logo fixed -->
+      <!-- full logo -->
+      <img src="assets/img/news/SOLO PALABRA  fondo transparente.png" [routerLink]="['/news']" class="logo-fondo pl-2 pr-2 d-none d-xl-block" alt="logo">
+      <!-- /logo fixed -->
+
+      <!-- footer toggle -->
+      <footer-toggle></footer-toggle>
+      <!-- /footer toggle -->
+
+      <!-- shortCutImages -->
+      <app-shortcut-images [currShortcuts]=currShortcuts  [shortcutImages]=shortcutImages style="display: contents;"  [class.invisible]="showmenu"></app-shortcut-images>
+      <!-- /shortCutImages -->
+
+      <!-- footerNavbar -->
+      <nav class="navbar navbar-light bg-lignt" (click)="togglemenu()">
+        <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#collapsingNavbar2">
+          <div>
+            <div class="menu-icon hamber-block">
+              <div class="delay-1"
+                [ngClass]="{'menu-icon-bar menu-icon-background':!showmenu, 'menu-icon-bar-long menu-icon-background-long':showmenu}">
+              </div>
+              <div class="delay-2"
+                [ngClass]="{'menu-icon-bar-long menu-icon-background':!showmenu, 'menu-icon-bar menu-icon-background-long':showmenu}">
+              </div>
+              <div class="delay-3"
+                [ngClass]="{'menu-icon-bar menu-icon-background':!showmenu, 'menu-icon-bar-long menu-icon-background-long':showmenu}">
+              </div>
+              <div class="delay-4"
+                [ngClass]="{'menu-icon-bar-long menu-icon-background':!showmenu, 'menu-icon-bar menu-icon-background-long':showmenu}">
+              </div>
+            </div>
+          </div>
+        </button>
+      </nav>
+      <div class="mobile-menu d-lg-none d-xl-none d-md-none" [ngClass]="{'mobile-menu': showmenu, 'mobile-menu-closed':!showmenu}">
+        <div class="footer-menu d-flex align-items-center pull-right">
+          <!-- like -->
+          <app-like (click)="togglemenu()"></app-like>
+          <!-- /like -->
+
+          <!-- info fixed -->
+          <div class="alert-icon" (click)="togglemenu()">
+            <img src="assets/img/news/icon.png" alt="icon" (click)="openInfo()">
+          </div>
+          <!-- /info fixed -->
+
+          <!-- language fixed -->
+          <div class="flag">
+            <!-- (languageSelected)="togglemenu()"  -->
+            <app-language (languageSelected)="togglemenu()"></app-language><sup>+</sup>
+          </div>
+          <!-- /language fixed -->
+
+          <!-- search -->
+          <app-menu-search (click)="togglemenu()"></app-menu-search>
+          <!-- /search -->
+        </div>
+      </div>
+      <!-- /footerNavbar -->
+    </div>
+  </div>
+  <div class="footer-menu d-flex align-items-center pull-right">
+
+    <app-query-autocomplete State="edit" class="mr-3">
+    </app-query-autocomplete>
+
+    <!-- like -->
+    <app-like></app-like>
+    <!-- /like -->
+
+    <!-- info fixed -->
+    <div class="alert-icon">
+      <img src="assets/img/news/icon.png" alt="icon" (click)="openInfo()">
+    </div>
+    <!-- /info fixed -->
+
+    <!-- language fixed -->
+    <div class="flag">
+      <app-language></app-language><sup>+</sup>
+    </div>
+    <!-- /language fixed -->
+
+    <!-- search -->
+    <app-menu-search></app-menu-search>
+    <!-- /search -->
+  </div>
+</div>
+

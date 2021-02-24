@@ -1,0 +1,10 @@
+sup {
+  color: bisque;
+  font-weight: bold;
+  top: -1em;
+}
+.thumb{
+  margin-left: 10px;
+  margin-right: 7px;
+  position: relative;
+}

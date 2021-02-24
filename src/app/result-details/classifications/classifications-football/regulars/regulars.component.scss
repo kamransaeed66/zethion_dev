@@ -1,0 +1,202 @@
+* {
+  --table-v-padding: 6px;
+  --table-h-padding: 8px;
+  --number-td-width: 4%;
+  --number-td-min-width: 4rem;
+  --alternate-line-background: rgba(180, 180, 180, 0.2);
+  --td-separator: 1px dotted rgba(180, 180, 180, 0.5);
+  --material-icons-width: 24px;
+  --table-border: var(--td-separator);
+}
+
+.classifications-table {
+  width: auto !important;
+  table-layout: fixed !important;
+  font-size: 0.9rem;
+  overflow: hidden;
+  margin: 0 15px !important;
+  padding-bottom: 2rem;
+
+  table {
+    width: calc(100% - 1px) !important;
+  }
+
+  thead {
+    background: none;
+    & > tr {
+      & > td {
+        padding-top: var(--table-v-padding);
+        padding-bottom: var(--table-v-padding);
+        &.sep {
+          border-right: var(--td-separator) !important;
+        }
+      }
+      &:nth-child(1) {
+        background: transparent !important;
+        max-height: 0px !important;
+        border: none;
+        & > td {
+          padding: 0 !important;
+        }
+      }
+      &.transparent-header {
+        // background: var(--theme-background);
+        background: transparent;
+        & > td {
+          max-height: 0.8rem !important;
+          padding: 1.5px 0 !important;
+        }
+      }
+      &.primary-header {
+        & > td {
+          background: var(--theme-background-2) !important;
+          // &:nth-child(1) {
+          //   background: transparent !important;
+          // }
+        }
+      }
+    }
+  }
+
+  tbody {
+    & > tr {
+      &:nth-child(even) {
+        & > td {
+          background-color: var(--alternate-line-background);
+        }
+      }
+      & > td {
+        padding-top: var(--table-v-padding);
+        padding-bottom: var(--table-v-padding);
+        &.sep {
+          border-right: var(--td-separator) !important;
+        }
+
+        // &:nth-child(even) {
+        //   color: var(--faint-text-color);
+        // }
+        // &:nth-child(1) {
+        //   color: var(--text-color);
+        // }
+        &:nth-child(2) {
+          // color: var(--text-color);
+          overflow-x: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+      }
+    }
+  }
+
+  tr,
+  tbody > tr,
+  thead > tr {
+    & > td {
+      text-align: center;
+      &.sp {
+        background: transparent !important;
+        width: 1px !important;
+        max-width: 1px !important;
+      }
+      &.n-c {
+        width: var(--number-td-width) !important;
+        min-width: var(--number-td-min-width) !important;
+        padding-left: 2px !important;
+        padding-right: 2px !important;
+      }
+      &.b-c {
+        // padding-left: 12px !important;
+        // padding-right: 12px !important;
+        width: 2.5rem !important;
+        min-width: 2rem !important;
+        font-weight: 600 !important;
+      }
+      &.fn-c {
+        color: var(--faint-text-color);
+      }
+
+      &.bt {
+        border-top: var(--table-border) !important;
+      }
+      &.bl {
+        border-left: var(--table-border) !important;
+      }
+      &.br {
+        border-right: var(--table-border) !important;
+      }
+      &.quarter {
+        width: 35% !important;
+        min-width: 10rem !important;
+      }
+      &.left-aligned {
+        text-align: left;
+      }
+
+      // &.bb {
+      //   border-bottom: var(--table-border) !important;
+      // }
+    }
+    &:last-child {
+      & > td {
+        &.bb {
+          border-bottom: var(--table-border) !important;
+        }
+      }
+    }
+  }
+}
+
+.group-header {
+  color: var(--text-color);
+  display: flex;
+  align-items: center;
+  & > div {
+    padding: var(--table-v-padding) var(--table-h-padding) 2px
+      var(--table-h-padding);
+  }
+
+  .group-name {
+    font-weight: 600;
+    text-align: start;
+  }
+}
+
+.group-controls {
+  margin-left: auto;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  position: fixed;
+  margin-top: -1.5rem;
+}
+
+.flipped {
+  transform: scaleX(-1);
+}
+
+@media (max-width: 460px) {
+  content,
+  table,
+  table th,
+  table td {
+    font-size: 0.7rem !important;
+  }
+
+  .classifications-table {
+    tr,
+    tbody > tr,
+    thead > tr {
+      & > td {
+        text-align: center;
+        &.n-c {
+          width: auto !important;
+          min-width: auto !important;
+          padding-left: 4px !important;
+          padding-right: 4px !important;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+.lens img {
+  width: 26px;
+  height: 26px;
+  transform: scaleX(-1);
+}
+
+.lens{
+  margin-left: 10px;
+  margin-right: 10px;
+  position: relative;
+}

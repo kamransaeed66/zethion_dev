@@ -1,0 +1,87 @@
+<div class="sub-content">
+  <div class="row text-white">
+    <div class="col-lg-4 col-md-5 col-sm-12 slideImg">
+
+      <div class="imageLoading spin-center" *ngIf="!newsBoxes.length && vidComp"><div class="w-50 mauto gold"><mat-spinner></mat-spinner></div></div>
+
+      <div id="slideNewsIndicators" class="carousel slide" [class.d-none]="!vidComp">
+        <div class="im-carousel">
+          <div *ngFor="let p of slideNews;  let i=index;" class="im-carousel__item nd-ratio nd-ratio--standard slide-{{i}}" (click)="openNews(p)">
+            <img [src]="p.urlToMedia" [alt]="p.source" [title]="p.title" onError="this.parentNode.parentNode.style.display = 'none';">
+            <div class="carousel-caption d-md-block">
+              <div class="slide-desc-wrapper">
+                <div class="row mb-2 slide-desc-team">{{p.source}}</div>
+                <div class="row slide-desc-title mt-4 text-left">{{p.title}}</div>
+                <div class="row slide-desc-publishAt mt-2">{{p.publishedAt}}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a role="button" *ngIf="newsBoxes.length" class="carousel-control-prev" (click)="scrollToPrevItem()" ><span aria-hidden="true" class="carousel-control-prev-icon"></span><span class="sr-only">Previous</span></a>
+        <a role="button" *ngIf="newsBoxes.length" class="carousel-control-next" (click)="scrollToNextItem()" ><span aria-hidden="true" class="carousel-control-next-icon"></span><span class="sr-only">Next</span></a>
+      </div>
+
+
+    </div>
+
+
+<!-- ====================================================================================================================== -->
+                                  <!-- Right side slider  -->
+<!-- ====================================================================================================================== -->
+
+ <div class="col-lg-8 col-md-7 col-sm-12">
+  <div class="news-optionX col-md-12 body-container" (translated)="getData($event)">
+
+    <div class="imageLoading spin-center" *ngIf="!newsBoxes.length && vidComp"><div class="w-50 mauto gold"><mat-spinner></mat-spinner></div></div>
+
+    <div class="preload" style="display: none;">
+      <img *ngFor="let x of preimgs;" src="{{x.urlToMedia}}" (load)="imgLoaded(x.id)" (error)="removeNews(x)">
+    </div>
+    <div
+      class="tiles-container"
+      infiniteScroll
+      [scrollWindow]="false"
+      [horizontal]="horizontalValue"
+      [infiniteScrollDistance]="3"
+      [alwaysCallback]="false"
+      (scrolled)="onScroll()"
+      >
+        <ng-container *ngIf="vidComp">
+          <div
+            class="hs_{{(i+1)}} hs_item col-md-4 tile-wrapper"
+            *ngFor="let s of newsBoxes; let i=index">
+              <div class="">
+                <div class="news-card"  *ngFor="let p of s; let si=index" (click)="openNews(p)">
+                  <div class="news-image-wrapper w-100" [class.bottom]="i % 2 === 0" *ngIf="p.mediaType === 'IMAGE'">
+                    <div [hidden]="imgLoading.indexOf(p.id) > -1" class="text-center imageLoading" ><div class="w-50 mauto gold"><mat-spinner></mat-spinner></div></div>
+                    <img [hidden]="imgLoading.indexOf(p.id) == -1" src="{{p.urlToMedia}}" alt="{{p.source}}" class="news-image" (load)="imgLoaded(p.id)" draggable="false">
+                  </div>
+                  <div class="news-image-wrapper w-100" [class.bottom]="i % 2 === 0" *ngIf="p.mediaType === 'VIDEO'">
+                    <button class="active"><i class="fa fa-play"></i></button>
+                    <video [class.d-none]="video_thumb" muted playsinline onloadedmetadata="this.muted = true" class="newsVideo">
+                      <source src="{{p.urlToMedia}}" type="video/mp4">
+                    </video>
+                    <img src="{{p.urlToMedia.split('.').slice(0, -1).join('.')}}_THUMBNAIL.jpg" alt="{{p.source}}" class="news-image" [class.d-none]="!video_thumb" draggable="false" (error)="videoThumb()">
+                  </div>
+                  <div class="news-desc-wrapper p-3">
+                    <div class="row mb-2 desc-team">{{p.source}}</div>
+                    <div class="row desc-title">{{p.title}}</div>
+                    <div class="row desc-publishAt">{{p.publishedAt}}</div>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </ng-container>
+      </div>
+  </div>
+</div>
+</div>
+
+
+<!-- ====================================================================================================================== -->
+                                            <!-- Bottom Section  -->
+<!-- ====================================================================================================================== -->
+<app-menu [currShortcuts]=currShortcuts [shortcutImages]=shortcutImages></app-menu>
+
+</div>
+<!-- <div class="wait-panel" *ngIf="panelLoading"></div> -->
